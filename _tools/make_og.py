@@ -19,15 +19,15 @@ BG, GOLD, TEXT, MUTED = (11, 11, 13), (201, 161, 90), (237, 232, 223), (181, 176
 # slug, source photo (in _source/originals), focal point y (0..1, where to centre the cover crop),
 # headline lines, kicker (gold caps), sub (muted)
 PAGES = [
-    ("default",   "Luxury-Taxi-ARIZONA.png",                          0.45, ["Comfort", "Luxury Rides"],            "BLACK CAR SERVICE  ·  SCOTTSDALE, AZ", "Airport transfers, corporate, events, hourly. Available 24/7."),
-    ("home",      "Luxury-Taxi-ARIZONA.png",                          0.45, ["Black car service", "in Scottsdale"],  "COMFORT LUXURY RIDES  ·  24/7",          "Chauffeured GMC Yukon XL Denali SUVs, Scottsdale and Phoenix."),
-    ("airport",   "Luxury-Taxi-Service-in-Scottsdale-Arizona-5.jpeg", 0.40, ["Airport car service", "PHX · SDL · AZA"], "COMFORT LUXURY RIDES  ·  SCOTTSDALE", "Timed to your flight. Flat rate, fixed before you book."),
-    ("corporate", "8.png",                                            0.50, ["Corporate", "car service"],            "COMFORT LUXURY RIDES  ·  SCOTTSDALE", "Executive transfers and meeting days, confirmed in one reply."),
-    ("events",    "Luxury-Taxi-Service-ARIZONA.png",                  0.55, ["Event", "transportation"],             "COMFORT LUXURY RIDES  ·  SCOTTSDALE", "Games, the Open, weddings, nights out. Up to six guests."),
-    ("hourly",    "Taxi-Service-ARIZONA.png",                         0.60, ["Private driver", "by the hour"],       "COMFORT LUXURY RIDES  ·  SCOTTSDALE", "The car and chauffeur stay with you, one hourly rate."),
-    ("fleet",     "Luxury-Taxi-ARIZONA.png",                          0.60, ["GMC Yukon", "XL Denali"],              "THE FLEET  ·  COMFORT LUXURY RIDES",  "Black full-size SUVs, up to six passengers with luggage."),
-    ("about",     "Administrator-of-Company.jpeg",                    0.25, ["Family-owned", "since 2020"],          "ABOUT  ·  COMFORT LUXURY RIDES",      "Scottsdale chauffeur service run by Ergi Janku."),
-    ("contact",   "Luxury-Taxi-Service-ARIZONA.png",                  0.55, ["Get a quote"],                         "COMFORT LUXURY RIDES  ·  24/7",       "Call or WhatsApp (586) 222-4809. Flat price, usually within the hour."),
+    ("default",   "Luxury-Taxi-ARIZONA.png",                          0.45, ["Comfort", "Luxury Rides"],            "BLACK CAR SERVICE, SCOTTSDALE AZ", "Airport transfers, corporate, events, hourly. Available 24/7."),
+    ("home",      "Luxury-Taxi-ARIZONA.png",                          0.45, ["Black car service", "in Scottsdale"],  "COMFORT LUXURY RIDES, 24 HOURS A DAY",   "Chauffeured GMC Yukon XL Denali SUVs, Scottsdale and Phoenix."),
+    ("airport",   "Luxury-Taxi-Service-in-Scottsdale-Arizona-5.jpeg", 0.40, ["Airport car service", "PHX, SDL and AZA"], "COMFORT LUXURY RIDES, SCOTTSDALE", "Timed to your flight. Flat rate, fixed before you book."),
+    ("corporate", "8.png",                                            0.50, ["Corporate", "car service"],            "COMFORT LUXURY RIDES, SCOTTSDALE", "Executive transfers and meeting days, confirmed in one reply."),
+    ("events",    "Luxury-Taxi-Service-ARIZONA.png",                  0.55, ["Event", "transportation"],             "COMFORT LUXURY RIDES, SCOTTSDALE", "Games, the Open, weddings, nights out. Up to six guests."),
+    ("hourly",    "Taxi-Service-ARIZONA.png",                         0.60, ["Private driver", "by the hour"],       "COMFORT LUXURY RIDES, SCOTTSDALE", "The car and chauffeur stay with you, one hourly rate."),
+    ("fleet",     "Luxury-Taxi-ARIZONA.png",                          0.60, ["GMC Yukon", "XL Denali"],              "THE FLEET, COMFORT LUXURY RIDES",  "Black full-size SUVs, up to six passengers with luggage."),
+    ("about",     "Administrator-of-Company.jpeg",                    0.25, ["Family-owned", "since 2020"],          "ABOUT COMFORT LUXURY RIDES",      "Scottsdale chauffeur service run by Ergi Janku."),
+    ("contact",   "Luxury-Taxi-Service-ARIZONA.png",                  0.55, ["Get a quote"],                         "COMFORT LUXURY RIDES, 24 HOURS A DAY",       "Call or WhatsApp (586) 222-4809. Flat price, usually within the hour."),
 ]
 
 

@@ -95,7 +95,7 @@
           var idx = reveals.indexOf(el);
           if (idx > -1) reveals.splice(idx, 1);
         }
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
+      }, { rootMargin: "0px 0px -4% 0px", threshold: 0 });
       for (var n = 0; n < reveals.length; n++) io.observe(reveals[n]);
       var idle;
       window.addEventListener("scroll", function () {

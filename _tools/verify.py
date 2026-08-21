@@ -245,7 +245,7 @@ for p in pages:
     if n_conf: (fail if STRICT else warn)(rel, f"check 13: {n_conf} claim(s) marked data-confirm await client confirmation")
 
     # 14. no em dashes or en dashes
-    for ch, name in (("—", "em dash"), ("–", "en dash")):
+    for ch, name in (("—", "em dash"), ("–", "en dash"), ("·", "middot")):
         if ch in raw: fail(rel, f"check 14: {name} present ({raw.count(ch)})")
 
     # 15. language
@@ -263,7 +263,7 @@ for p in pages:
     # 18. preload matches hero source
     mp = re.search(r'<link rel="preload" as="image"[^>]*imagesrcset="([^"]+)"', src)
     if mp:
-        ms = re.search(r'<figure class="hero__media">.*?<source type="image/webp" srcset="([^"]+)"', src, re.S)
+        ms = re.search(r'<figure class="hero__media[^"]*">.*?<source type="image/webp" srcset="([^"]+)"', src, re.S)
         if not ms: fail(rel, "check 18: image preload but no hero <source type=webp>")
         elif ms.group(1) != mp.group(1): fail(rel, "check 18: preload imagesrcset differs from the hero webp srcset")
 
