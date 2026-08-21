@@ -103,9 +103,22 @@ Results of the last run are in the hand-off notes at the bottom of this file.
 | **Stock interiors** | corporate hero (`black-suv-rear-seat`), hourly split (`black-suv-console`) | These two are stock photos inherited from the old site. Replace with real cabin photos of the Denali when available |
 | **Address** | every page + JSON-LD | `11545 N Frank Lloyd Wright Blvd, Scottsdale, AZ 85259` (confirmed with the client on 2026-08-21). Make sure the Google Business Profile shows the same address, phone and hours |
 
+## Client preview (Cloudflare Pages)
+
+The site is live for review at **https://comfortluxuryrides.pages.dev/** (noindex header, so search
+engines ignore it). Repository: https://github.com/agency-wo/comfort-luxury-rides-website.
+To refresh the preview after new commits:
+```bash
+STAGE=$(mktemp -d) && git archive HEAD | tar -x -C "$STAGE"   && rm -rf "$STAGE/_tools" "$STAGE/README.md" "$STAGE/.gitignore" "$STAGE/.gitattributes"   && printf '/*
+  X-Robots-Tag: noindex
+' > "$STAGE/_headers"   && (cd _tools && npx wrangler pages deploy "$STAGE" --project-name=comfortluxuryrides --branch=main --commit-dirty=true)
+```
+When the real domain goes live, either attach `comfortluxuryrides.com` to this same Cloudflare Pages
+project (Custom domains, and drop the `_headers` noindex line) or use GitHub Pages as below.
+
 ## Publish: GitHub Pages + Cloudflare
 
-1. Create the repository (the user does this step, or approves it): `gh repo create agency-wo/comfort-luxury-rides-website --public --source=. --push`.
+1. The repository exists at `agency-wo/comfort-luxury-rides-website` (created 2026-08-21).
 2. GitHub: Settings -> Pages -> Source **main / root**. Custom domain `comfortluxuryrides.com` (the `CNAME` file is already in the repo). Wait for the certificate, then tick **Enforce HTTPS**.
 3. Cloudflare DNS for `comfortluxuryrides.com`:
    - `A @` -> `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
