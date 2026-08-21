@@ -430,6 +430,13 @@ body.nav-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45de
 .contact-card a { color: #fff; }
 .contact-card address { font-style: normal; color: var(--text); }
 .contact-card p, .contact-card address { font-size: .98rem; }
+.section--paper .contact-card { color: var(--text); }
+.section--paper .contact-card h2 { color: #fff; }
+.section--paper .contact-card h3 { color: var(--gold); }
+.section--paper .contact-card .muted { color: var(--text-muted); }
+.section--paper .contact-card .phone-link { color: #fff; }
+.section--paper .contact-card .phone-link svg { color: var(--gold); }
+.section--paper .contact-card :focus-visible { outline-color: var(--focus); }
 .socials { display: flex; gap: .7rem; }
 .socials a { width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--line-dark-2); display: grid; place-items: center; color: var(--text); }
 .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); text-decoration: none; }
