@@ -13,30 +13,31 @@ ORDER = ["", "airport-car-service/", "corporate-transportation/", "event-transpo
          "hourly-chauffeur-service/", "fleet/", "about/", "contact/", "privacy/"]
 BLOCK = {"p", "h1", "h2", "h3", "h4", "li", "summary", "figcaption", "td", "th", "address", "blockquote", "dt", "dd"}
 SKIP = {"script", "style", "svg", "header", "footer", "nav", "form", "button"}
+VOID = {"img", "input", "br", "hr", "meta", "link", "source", "use", "path", "circle", "rect", "wbr", "col", "area", "base", "embed", "param", "track"}
 
 
 class Text(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.out, self.skip, self.cur, self.in_main = [], 0, [], False
+        self.out, self.skip_stack, self.cur, self.in_main = [], [], [], False
         self.title = ""; self._t = False
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if tag == "title": self._t = True
         if tag == "main": self.in_main = True
-        if tag in SKIP or a.get("aria-hidden") == "true" or "call-bar" in (a.get("class") or "") or "lightbox" in (a.get("class") or ""):
-            self.skip += 1
-        if tag in BLOCK and self.skip == 0 and self.in_main:
+        if tag not in VOID and (tag in SKIP or a.get("aria-hidden") == "true" or "call-bar" in (a.get("class") or "") or "lightbox" in (a.get("class") or "")):
+            self.skip_stack.append(tag)
+        if tag in BLOCK and not self.skip_stack and self.in_main:
             self.flush()
             if tag in ("h2", "h3"): self.cur.append(("#" * (int(tag[1]))) + " ")
     def handle_endtag(self, tag):
         if tag == "title": self._t = False
         if tag == "main": self.in_main = False
-        if tag in SKIP: self.skip = max(0, self.skip - 1)
-        if tag in BLOCK and self.skip == 0 and self.in_main: self.flush()
+        if self.skip_stack and self.skip_stack[-1] == tag: self.skip_stack.pop()
+        if tag in BLOCK and not self.skip_stack and self.in_main: self.flush()
     def handle_data(self, data):
         if self._t: self.title += data
-        if self.skip == 0 and self.in_main: self.cur.append(data)
+        if not self.skip_stack and self.in_main: self.cur.append(data)
     def flush(self):
         t = " ".join("".join(self.cur).split())
         if t: self.out.append(t)
