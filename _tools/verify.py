@@ -289,8 +289,13 @@ for p in pages:
         if not m.group(1).startswith("--pos"):
             fail(rel, f"check 22: inline style, move it to a class: {m.group(1)[:60]}")
 
-    # 21. the wrong-city stock photo never returns
+    # 21. stock and thumbnail photos never return. The three interiors/details came from the old
+    #     WordPress site and are not the client's vehicles; the last two are 300 px and 240 px
+    #     WordPress thumbnails that cannot be shown honestly at any size.
     if re.search(r"Minneapolis|Screenshot-2023", raw, re.I): fail(rel, "check 21: Minneapolis / Screenshot-2023 referenced")
+    for slug in ("black-suv-rear-seat", "black-suv-console", "black-suv-grille",
+                 "three-black-suvs-garage", "black-suv-old-town-scottsdale"):
+        if slug in raw: fail(rel, f"check 21: {slug} is stock or a thumbnail, it must not be published")
 
     # structure basics
     for need in ('<main id="main">', 'class="skip-link"', "<header", "<footer", '<nav class="nav" aria-label="Main">'):

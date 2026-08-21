@@ -19,6 +19,7 @@ mkdirSync(OUT, { recursive: true });
 const BG = "#0B0B0D";                      // page background: RGBA PNGs are flattened onto it
 const HERO_W = [1400, 1000, 740, 560, 400];
 const STD_W = [1000, 700, 480, 320];
+// Optional per-item `widths` overrides both lists, for sources that do not fit the ladder.
 
 // cat: hero | vehicle | interior | place | people | thumb | texture
 // Optional `q` overrides the encode quality (already-compressed JPEG sources get a little more).
@@ -28,9 +29,9 @@ const M = [
     alt: "Black GMC Yukon XL Denali parked under the US and Arizona flags with a desert peak behind, Scottsdale" },
   { slug: "black-suv-private-jet-scottsdale-airport", src: "Luxury-Taxi-Service-in-Scottsdale-Arizona-5.jpeg", cat: "hero", hero: true, q: { webp: 78, jpeg: 84 },
     alt: "Black luxury SUV parked beside a private jet on the ramp at Scottsdale Airport" },
-  { slug: "black-suv-resort-porte-cochere", src: "Luxury-Taxi-Service-ARIZONA.png", cat: "hero", hero: true,
+  { slug: "black-suv-resort-porte-cochere", src: "Taxi-Service-ARIZONA.png", cat: "hero", hero: true,
     alt: "Black luxury SUV waiting under a Spanish-tile porte-cochere with a saguaro and palm at a Scottsdale resort" },
-  { slug: "black-suv-sunset-palms", src: "Taxi-Service-ARIZONA.png", cat: "hero", hero: true,
+  { slug: "black-suv-sunset-palms", src: "Luxury-Taxi-Service-ARIZONA.png", cat: "hero", hero: true,
     alt: "Side profile of a black GMC Yukon XL Denali at sunset with palm trees, Phoenix" },
   { slug: "ergi-janku-ceo", src: "Administrator-of-Company.jpeg", cat: "people", hero: true, q: { webp: 78, jpeg: 84 },
     alt: "Ergi Janku, CEO and Managing Director of Comfort Luxury Rides, in a suit beside a black SUV" },
@@ -40,7 +41,7 @@ const M = [
     alt: "Close-up of a car centre console and climate controls" },
   { slug: "black-suv-grille", src: "Luxury-Taxi-Service-ARIZONA-USA.png", cat: "vehicle",
     alt: "Headlight and chrome grille of a black luxury car" },
-  { slug: "phoenix-skyline-sunset", src: "Taxi-Service-in-Scottsdale-Arizona-1024x536.jpg", cat: "place", q: { webp: 78, jpeg: 84 },
+  { slug: "phoenix-skyline-sunset", src: "Taxi-Service-in-Scottsdale-Arizona-1024x536.jpg", cat: "place", q: { webp: 78, jpeg: 84 }, widths: [1024, 700, 480, 320],
     alt: "Downtown Phoenix skyline at sunset with mountains behind" },
   { slug: "three-black-suvs-garage", src: "11-300x182.png", cat: "thumb",
     alt: "Three black luxury SUVs lined up in a parking garage" },
@@ -53,7 +54,7 @@ const M = [
 async function run() {
   const manifest = [];
   for (const item of M) {
-    const widths = item.hero ? HERO_W : STD_W;
+    const widths = item.widths || (item.hero ? HERO_W : STD_W);
     const open = () => { const s = sharp(join(SRC, item.src), { failOn: "none" }).rotate(); return item.crop ? s.extract(item.crop) : s; };
     const meta = await open().toBuffer({ resolveWithObject: true }).then(r => r.info);
     const srcW = meta.width, srcH = meta.height;
@@ -65,7 +66,10 @@ async function run() {
     for (const w of usable) {
       const pipe = open()
         .flatten({ background: BG })
-        .resize({ width: w, withoutEnlargement: true });
+        .resize({ width: w, withoutEnlargement: true })
+        // the client's originals top out at 740 px, so a light unsharp pass keeps them from
+        // going mushy when a 2x screen scales them up
+        .sharpen({ sigma: 0.7 });
       const info = await pipe.clone().webp({ quality: item.q?.webp ?? 74 }).toFile(join(OUT, `${item.slug}-${w}.webp`));
       await pipe.clone().jpeg({ quality: item.q?.jpeg ?? 80, mozjpeg: true, progressive: true }).toFile(join(OUT, `${item.slug}-${w}.jpg`));
       if (w === usable[0]) { natW = info.width; natH = info.height; }

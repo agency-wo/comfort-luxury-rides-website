@@ -99,6 +99,7 @@ Results of the last run are in the hand-off notes at the bottom of this file.
 | **Google Business Profile link / Place ID** | `index.html` JSON-LD (`hasMap` is not set yet), footer and reviews buttons use a Maps search URL | Find the Place ID (Google Place ID finder), then add `"hasMap": "https://www.google.com/maps/place/?q=place_id:<ID>"` and `"geo"` to the LocalBusiness node, and point the review buttons at `https://search.google.com/local/writereview?placeid=<ID>` |
 | **Real reviews** | `index.html`, the commented block marked `REVIEWS-PLACEHOLDER` | Paste three real reviews (first name, city, source) and remove the comment markers. Never invent reviews and never add `Review`/`AggregateRating` markup to the LocalBusiness |
 | **Claims marked `data-confirm`** | all pages (`verify.py` lists the count per page) | Flight tracking, meeting point by text, FBO pickups, child seats, payment methods, cancellation terms, hourly minimum, long-distance tours, bottled water, monthly invoicing, licensed/insured wording, the owner bio sentence. Confirm each with the client, then delete the attribute or rewrite |
+| **Real interior photos** | corporate and hourly pages | The three generic interiors and details inherited from the old site (`8.png` rear seat, `10.png` console, the grille close-up) are **no longer published**, and the gate now fails if they return. The site runs on the five real vehicle photos plus the founder portrait and the skyline. Send real cabin photos and they go straight back in |
 | **Larger photos** | `_source/originals/` | Ask for originals of 2000 px or more and a vector logo; re-run the image pipeline. The two thumbnails in the fleet gallery (garage, Old Town) are only 300 and 240 px wide |
 | **Stock interiors** | corporate hero (`black-suv-rear-seat`), hourly split (`black-suv-console`) | These two are stock photos inherited from the old site. Replace with real cabin photos of the Denali when available |
 | **"Family-owned" claim** | home trust strip and hero chip, `about/` H1 and facts, meta descriptions, `llms.txt`, JSON-LD | Taken verbatim from the client's own About page on the old site: *"Founded in 2020, Comfort Luxury Rides is a family-owned business driven by a passion for client satisfaction and an unwavering commitment to excellence."* Confirm they still want to make it, or say the word and it comes out everywhere |
@@ -158,6 +159,9 @@ review link in follow-up messages to clients.
   about 96, contact 98) with CLS 0 and 100 for accessibility, best practices and SEO. Results
   live in `_tools/lh/` (ignored by git). Mobile performance is limited by the render-blocking
   stylesheet and the two variable fonts; see "Mobile optimisation" below.
+- **Photos are mounted, not marked.** Each photo sits in a small mat with a hairline and a soft
+  shadow (`.hero__media`, `.split__media--frame`). The gold corner ticks that used to sit around them
+  read as an image placeholder and are gone for good.
 - **Design rules that must hold.** Client photos are compositions, so they are never cropped:
   hero, split and fleet-card images keep their natural aspect ratio and are sized by their column,
   and only the fleet contact-sheet grid and the service-card thumbnails use `object-fit: cover`

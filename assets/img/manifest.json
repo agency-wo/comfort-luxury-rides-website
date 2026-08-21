@@ -9,7 +9,7 @@
       400
     ],
     "w": 740,
-    "h": 923,
+    "h": 850,
     "alt": "Black GMC Yukon XL Denali parked under the US and Arizona flags with a desert peak behind, Scottsdale"
   },
   {
@@ -36,7 +36,7 @@
       400
     ],
     "w": 740,
-    "h": 887,
+    "h": 855,
     "alt": "Black luxury SUV waiting under a Spanish-tile porte-cochere with a saguaro and palm at a Scottsdale resort"
   },
   {
@@ -49,7 +49,7 @@
       400
     ],
     "w": 740,
-    "h": 855,
+    "h": 887,
     "alt": "Side profile of a black GMC Yukon XL Denali at sunset with palm trees, Phoenix"
   },
   {
@@ -113,13 +113,13 @@
     "cat": "place",
     "hero": false,
     "widths": [
-      1000,
+      1024,
       700,
       480,
       320
     ],
-    "w": 1000,
-    "h": 523,
+    "w": 1024,
+    "h": 536,
     "alt": "Downtown Phoenix skyline at sunset with mountains behind"
   },
   {
