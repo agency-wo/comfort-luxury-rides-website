@@ -1,0 +1,161 @@
+[
+  {
+    "slug": "black-suv-scottsdale-desert",
+    "cat": "hero",
+    "hero": true,
+    "widths": [
+      740,
+      560,
+      400
+    ],
+    "w": 740,
+    "h": 923,
+    "alt": "Black GMC Yukon XL Denali parked under the US and Arizona flags with a desert peak behind, Scottsdale"
+  },
+  {
+    "slug": "black-suv-private-jet-scottsdale-airport",
+    "cat": "hero",
+    "hero": true,
+    "widths": [
+      960,
+      740,
+      560,
+      400
+    ],
+    "w": 960,
+    "h": 1233,
+    "alt": "Black luxury SUV parked beside a private jet on the ramp at Scottsdale Airport"
+  },
+  {
+    "slug": "black-suv-resort-porte-cochere",
+    "cat": "hero",
+    "hero": true,
+    "widths": [
+      740,
+      560,
+      400
+    ],
+    "w": 740,
+    "h": 887,
+    "alt": "Black luxury SUV waiting under a Spanish-tile porte-cochere with a saguaro and palm at a Scottsdale resort"
+  },
+  {
+    "slug": "black-suv-sunset-palms",
+    "cat": "hero",
+    "hero": true,
+    "widths": [
+      740,
+      560,
+      400
+    ],
+    "w": 740,
+    "h": 855,
+    "alt": "Side profile of a black GMC Yukon XL Denali at sunset with palm trees, Phoenix"
+  },
+  {
+    "slug": "ergi-janku-ceo",
+    "cat": "people",
+    "hero": true,
+    "widths": [
+      960,
+      740,
+      560,
+      400
+    ],
+    "w": 960,
+    "h": 1280,
+    "alt": "Ergi Janku, CEO and Managing Director of Comfort Luxury Rides, in a suit beside a black SUV"
+  },
+  {
+    "slug": "black-suv-rear-seat",
+    "cat": "interior",
+    "hero": false,
+    "widths": [
+      740,
+      700,
+      480,
+      320
+    ],
+    "w": 740,
+    "h": 553,
+    "alt": "Rear seat of a luxury vehicle with leather headrests and seat-back screens, door open"
+  },
+  {
+    "slug": "black-suv-console",
+    "cat": "interior",
+    "hero": false,
+    "widths": [
+      740,
+      700,
+      480,
+      320
+    ],
+    "w": 740,
+    "h": 517,
+    "alt": "Close-up of a car centre console and climate controls"
+  },
+  {
+    "slug": "black-suv-grille",
+    "cat": "vehicle",
+    "hero": false,
+    "widths": [
+      740,
+      700,
+      480,
+      320
+    ],
+    "w": 740,
+    "h": 499,
+    "alt": "Headlight and chrome grille of a black luxury car"
+  },
+  {
+    "slug": "phoenix-skyline-sunset",
+    "cat": "place",
+    "hero": false,
+    "widths": [
+      1000,
+      700,
+      480,
+      320
+    ],
+    "w": 1000,
+    "h": 523,
+    "alt": "Downtown Phoenix skyline at sunset with mountains behind"
+  },
+  {
+    "slug": "three-black-suvs-garage",
+    "cat": "thumb",
+    "hero": false,
+    "widths": [
+      300
+    ],
+    "w": 300,
+    "h": 182,
+    "alt": "Three black luxury SUVs lined up in a parking garage"
+  },
+  {
+    "slug": "black-suv-old-town-scottsdale",
+    "cat": "thumb",
+    "hero": false,
+    "widths": [
+      240
+    ],
+    "w": 240,
+    "h": 300,
+    "alt": "Black luxury SUV driving past the Sunrise Trading Post in Old Town Scottsdale"
+  },
+  {
+    "slug": "dashboard-texture",
+    "cat": "texture",
+    "hero": false,
+    "widths": [
+      1000,
+      700,
+      480,
+      320
+    ],
+    "w": 1000,
+    "h": 525,
+    "alt": ""
+  }
+]
