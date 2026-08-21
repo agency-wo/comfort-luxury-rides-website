@@ -1,0 +1,16 @@
+# Client originals (high-res sources) - not deployed, not published
+/_source/
+
+# Tooling artifacts (scripts stay in the repo; outputs and deps do not)
+/_tools/node_modules/
+/_tools/package-lock.json
+/_tools/shots/
+/_tools/lh/
+/_tools/*.log
+
+# OS / editor
+Thumbs.db
+.DS_Store
+desktop.ini
+*.log
+/.wrangler/

@@ -1,0 +1,11 @@
+{
+  "name": "clr-site-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local image + QA tooling for the Comfort Luxury Rides website (not deployed).",
+  "dependencies": {
+    "playwright-core": "^1.50.0",
+    "sharp": "^0.34.1"
+  }
+}
