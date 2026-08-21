@@ -153,13 +153,35 @@ review link in follow-up messages to clients.
 - SEO: unique titles/descriptions, canonical, Open Graph, JSON-LD graph (LocalBusiness + Service +
   FAQPage + BreadcrumbList + Person), sitemap, robots, llms.txt, one H1 per page, keyword-led URLs.
 - The gate (`_tools/verify.py`) passed with warnings only for the items in the table above.
-- Lighthouse 13 on 2026-08-21 (local server, Edge headless), after the design revision: desktop
-  100 / 100 / 100 / 100; throttled mobile performance 94 to 95 (LCP 2.6 to 2.7 s, CLS 0) with 100
-  for accessibility, best practices and SEO. Results live in `_tools/lh/` (ignored by git).
+- Lighthouse 13 on 2026-08-21 (local server, Edge headless), after design round 3: desktop
+  100 / 100 / 100 / 100; throttled mobile performance 93 to 98 (home 93, fleet 95, airport 96,
+  about 96, contact 98) with CLS 0 and 100 for accessibility, best practices and SEO. Results
+  live in `_tools/lh/` (ignored by git). Mobile performance is limited by the render-blocking
+  stylesheet and the two variable fonts; see "Mobile optimisation" below.
 - **Design rules that must hold.** Client photos are compositions, so they are never cropped:
   hero, split and fleet-card images keep their natural aspect ratio and are sized by their column,
   and only the fleet contact-sheet grid and the service-card thumbnails use `object-fit: cover`
   (with `--pos` per image for the focal point). On phones the hero leads with text, and the framed
   photo sits under the buttons, so the call to action is visible without scrolling.
+- **No reserved scrollbar gutter.** `scrollbar-gutter: stable` used to leave a 15 px strip of page
+  background down the right edge of every section on any device with overlay scrollbars (all phones,
+  and Macs). It is gone; `assets/js/main.js` pays the scrollbar width back as padding while the
+  scroll is locked instead. `_tools/shot.mjs` now fails a page that is narrower than the viewport,
+  so this cannot come back unnoticed.
 - **Labels.** Eyebrows are plain uppercase Inter in gold: no hairline rule, no middots. The gate
   fails on `·` as well as on em and en dashes (check 14), which keeps the old style from returning.
+
+## Mobile optimisation (planned, not yet done)
+
+Mobile sits at 93 to 98 with CLS 0. What is left is bytes before first paint, in priority order:
+
+1. **Subset the fonts.** Cormorant Garamond (37 KB) is used for headings and numerals only, and
+   Inter (47 KB) ships the full latin range. Subsetting both to the glyphs the site actually uses,
+   with `fontTools` (already installed), should save roughly 45 to 60 KB on the critical path.
+2. **Minify the stylesheet at deploy.** `assets/css/styles.css` is ~56 KB unminified and render
+   blocking. A `_tools/build.py` that emits `styles.min.css`, plus a gate check that the two agree,
+   keeps the source readable and saves ~16 KB.
+3. **AVIF renditions** alongside WebP for the hero and card images (`pillow_avif` is installed),
+   roughly 25 to 30 percent smaller at the same quality.
+4. **Cache headers** on the real domain: `/assets/*` immutable for a year, HTML must-revalidate.
+5. **Trim the inline icon sprite per page** so each page ships only the symbols it uses.
