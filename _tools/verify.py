@@ -285,7 +285,7 @@ if sitemap_urls != page_urls:
     fail("sitemap.xml", f"check 12: sitemap/page mismatch. only in sitemap: {sorted(sitemap_urls - page_urls)}; only on disk: {sorted(page_urls - sitemap_urls)}")
 robots = (ROOT / "robots.txt").read_text(encoding="utf-8") if (ROOT / "robots.txt").exists() else ""
 if f"Sitemap: {HOST}/sitemap.xml" not in robots: fail("robots.txt", "check 12: robots.txt does not name the sitemap")
-for f in (".nojekyll", "CNAME", "favicon.ico", "apple-touch-icon.png", "assets/img/og/og-default.jpg", "llms.txt"):
+for f in (".nojekyll", "CNAME", "favicon.ico", "apple-touch-icon.png", "assets/img/og/og-default.jpg", "llms.txt", "llms-full.txt"):
     if not (ROOT / f).exists(): fail(f, "check 12: required file missing")
 if (ROOT / "CNAME").exists() and (ROOT / "CNAME").read_text().strip() != "comfortluxuryrides.com": fail("CNAME", "check 12: CNAME content")
 

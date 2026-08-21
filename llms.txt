@@ -22,4 +22,5 @@ private FBO terminals), Phoenix-Mesa Gateway (AZA), Phoenix Deer Valley (DVT).
 - [Get a quote](https://comfortluxuryrides.com/contact/): quote form, phone, WhatsApp, email
 - [Privacy policy](https://comfortluxuryrides.com/privacy/)
 
+Full text of every page: https://comfortluxuryrides.com/llms-full.txt
 Sitemap: https://comfortluxuryrides.com/sitemap.xml
