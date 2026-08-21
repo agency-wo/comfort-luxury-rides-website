@@ -318,13 +318,14 @@ body.nav-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45de
   background: var(--surface); border: 1px solid var(--line-dark-2); border-radius: var(--radius); padding: clamp(1.2rem, 3vw, 2.4rem); }
 .fleet-card__media img { width: 100%; border-radius: var(--radius-s); aspect-ratio: 4 / 5; object-fit: cover; }
 .fleet-card__tag { font-size: var(--fs-eyebrow); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-.fleet-card h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.1; margin: .4rem 0 .8rem; }
+.fleet-card h3, .fleet-card__title { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.1; margin: .4rem 0 .8rem; letter-spacing: -.012em; }
 .specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem 1.4rem; margin: 1.2rem 0 1.4rem; }
 .specs li { display: flex; align-items: flex-start; gap: .75rem; font-size: .95rem; }
 .specs svg { width: 22px; height: 22px; flex: none; color: var(--gold); margin-top: .1em; }
 .specs b { display: block; font-weight: 600; color: #fff; }
 .specs span { color: var(--text-muted); font-size: .88rem; }
 .section--paper .fleet-card { background: #fff; border-color: var(--line-paper); }
+.section--paper .fleet-card__tag { color: var(--gold-text-l); }
 .section--paper .specs b { color: var(--ink); }
 .section--paper .specs span { color: var(--ink-muted); }
 .section--paper .specs svg { color: var(--gold-text-l); }
@@ -436,6 +437,7 @@ body.nav-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45de
 .section--paper .contact-card .muted { color: var(--text-muted); }
 .section--paper .contact-card .phone-link { color: #fff; }
 .section--paper .contact-card .phone-link svg { color: var(--gold); }
+.contact-card .btn--wa { color: #062a12; }
 .section--paper .contact-card :focus-visible { outline-color: var(--focus); }
 .socials { display: flex; gap: .7rem; }
 .socials a { width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--line-dark-2); display: grid; place-items: center; color: var(--text); }
