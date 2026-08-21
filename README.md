@@ -152,7 +152,13 @@ review link in follow-up messages to clients.
 - SEO: unique titles/descriptions, canonical, Open Graph, JSON-LD graph (LocalBusiness + Service +
   FAQPage + BreadcrumbList + Person), sitemap, robots, llms.txt, one H1 per page, keyword-led URLs.
 - The gate (`_tools/verify.py`) passed with warnings only for the items in the table above.
-- Lighthouse 13 on 2026-08-21 (local server, Edge headless): home, airport, fleet and contact each
-  scored 100 / 100 / 100 / 100 on desktop; on throttled mobile, performance 95 to 98 with LCP 2.0 to
-  2.6 s and CLS 0, and 100 for accessibility, best practices and SEO. Results live in `_tools/lh/`
-  (ignored by git).
+- Lighthouse 13 on 2026-08-21 (local server, Edge headless), after the design revision: desktop
+  100 / 100 / 100 / 100; throttled mobile performance 94 to 95 (LCP 2.6 to 2.7 s, CLS 0) with 100
+  for accessibility, best practices and SEO. Results live in `_tools/lh/` (ignored by git).
+- **Design rules that must hold.** Client photos are compositions, so they are never cropped:
+  hero, split and fleet-card images keep their natural aspect ratio and are sized by their column,
+  and only the fleet contact-sheet grid and the service-card thumbnails use `object-fit: cover`
+  (with `--pos` per image for the focal point). On phones the hero leads with text, and the framed
+  photo sits under the buttons, so the call to action is visible without scrolling.
+- **Labels.** Eyebrows are plain uppercase Inter in gold: no hairline rule, no middots. The gate
+  fails on `·` as well as on em and en dashes (check 14), which keeps the old style from returning.
