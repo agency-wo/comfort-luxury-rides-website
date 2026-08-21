@@ -51,6 +51,8 @@ await page.screenshot({ path: out, fullPage: full, animations: "disabled" });
 const overflow = await page.evaluate(() => {
   const doc = document.documentElement;
   const bad = [];
+  // narrower than the viewport is a bug too: it means something is reserving space at the edge
+  if (doc.scrollWidth < doc.clientWidth - 1) bad.push(`PAGE NARROWER THAN VIEWPORT by ${doc.clientWidth - doc.scrollWidth}px`);
   if (doc.scrollWidth > doc.clientWidth + 1) {
     document.querySelectorAll("body *").forEach((el) => {
       const r = el.getBoundingClientRect();

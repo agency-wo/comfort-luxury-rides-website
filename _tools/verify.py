@@ -261,17 +261,33 @@ for p in pages:
     chrome_top[rel], chrome_bottom[rel] = t, b
 
     # 18. preload matches hero source
-    mp = re.search(r'<link rel="preload" as="image"[^>]*imagesrcset="([^"]+)"', src)
-    if mp:
+    preloads = re.findall(r'<link rel="preload" as="image"[^>]*imagesrcset="([^"]+)"', src)
+    if preloads:
         ms = re.search(r'<figure class="hero__media[^"]*">.*?<source type="image/webp" srcset="([^"]+)"', src, re.S)
-        if not ms: fail(rel, "check 18: image preload but no hero <source type=webp>")
-        elif ms.group(1) != mp.group(1): fail(rel, "check 18: preload imagesrcset differs from the hero webp srcset")
+        if not ms:
+            fail(rel, "check 18: image preload but no hero <source type=webp>")
+        else:
+            hero_urls = {x.strip().split(" ")[0] for x in ms.group(1).split(",")}
+            for pl in preloads:
+                for u in {x.strip().split(" ")[0] for x in pl.split(",")}:
+                    if u not in hero_urls:
+                        fail(rel, f"check 18: preloaded image {u} is not in the hero webp srcset")
+        # every image preload must be scoped to a breakpoint, or two of them would both fetch
+        for tag in re.findall(r'<link rel="preload" as="image"[^>]*>', src):
+            if "media=" not in tag:
+                fail(rel, "check 18: image preload without a media condition")
 
     # 19. viewport, theme-color, noopener
     if 'name="viewport"' not in src: fail(rel, "check 19: viewport missing")
     if 'name="theme-color"' not in src: fail(rel, "check 19: theme-color missing")
     for tag, a, _ in c.tags:
         if tag == "a" and a.get("target") == "_blank" and "noopener" not in (a.get("rel") or ""): fail(rel, f"check 19: target=_blank without rel=noopener: {a.get('href')}")
+
+    # 22. no inline styles: every look belongs to a class. The one exception is the
+    #     --pos focal-point hook, which is per-image data rather than styling.
+    for m in re.finditer(r'style="([^"]*)"', src):
+        if not m.group(1).startswith("--pos"):
+            fail(rel, f"check 22: inline style, move it to a class: {m.group(1)[:60]}")
 
     # 21. the wrong-city stock photo never returns
     if re.search(r"Minneapolis|Screenshot-2023", raw, re.I): fail(rel, "check 21: Minneapolis / Screenshot-2023 referenced")

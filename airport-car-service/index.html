@@ -192,10 +192,10 @@
         <h2>How a pickup works</h2>
         <p class="lead">What happens between landing and getting into the car.</p>
       </div>
-      <ol class="steps">
-        <li class="step reveal" data-confirm="flight-tracking"><b></b><h3>Send the flight number</h3><p>We follow the arrival time and move the pickup with it. If the flight is early or late, the car is still at the terminal when you land.</p></li>
-        <li class="step reveal" data-delay="1" data-confirm="meeting-point"><b></b><h3>Walk out to the meeting point</h3><p>Your chauffeur texts the pickup spot before you land: the arrivals curb outside baggage claim, or inside the terminal if you prefer. Luggage goes in the cargo bay.</p></li>
-        <li class="step reveal" data-delay="2"><b></b><h3>Ride home at the price you were quoted</h3><p>One flat price, agreed when you booked. No meter and no surge pricing during Spring Training or on a holiday weekend.</p></li>
+      <ol class="steps steps--icons">
+        <li class="step reveal" data-confirm="flight-tracking"><span class="step__icon"><svg aria-hidden="true"><use href="#i-plane"/></svg></span><b></b><h3>Send the flight number</h3><p>We follow the arrival time and move the pickup with it. If the flight is early or late, the car is still at the terminal when you land.</p></li>
+        <li class="step reveal" data-delay="1" data-confirm="meeting-point"><span class="step__icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><b></b><h3>Walk out to the meeting point</h3><p>Your chauffeur texts the pickup spot before you land: the arrivals curb outside baggage claim, or inside the terminal if you prefer. Luggage goes in the cargo bay.</p></li>
+        <li class="step reveal" data-delay="2"><span class="step__icon"><svg aria-hidden="true"><use href="#i-tag"/></svg></span><b></b><h3>Ride home at the price you were quoted</h3><p>One flat price, agreed when you booked. No meter and no surge pricing during Spring Training or on a holiday weekend.</p></li>
       </ol>
     </div>
   </section>
@@ -206,35 +206,51 @@
         <p class="eyebrow">The airports</p>
         <h2>The airports we serve</h2>
       </div>
-      <div class="grid-2">
-        <div class="reveal">
-          <h3><span class="num" style="color:var(--gold);font-size:1.6rem;margin-right:.5rem">PHX</span><a href="https://www.skyharbor.com/" target="_blank" rel="noopener">Phoenix Sky Harbor International</a></h3>
-          <p class="muted" style="margin-top:.6rem">The main airport for the Valley, about 25 minutes from central Scottsdale outside peak traffic. Both terminals, 3 and 4, are covered. Curbside pickup is standard; tell us if you want your chauffeur inside at baggage claim.</p>
+      <div class="board">
+        <div class="board__row reveal">
+          <span class="board__code">PHX</span>
+          <div class="board__body">
+            <h3><a href="https://www.skyharbor.com/" target="_blank" rel="noopener">Phoenix Sky Harbor International</a></h3>
+            <p>The main airport for the Valley, about 25 minutes from central Scottsdale outside peak traffic. Both terminals, 3 and 4, are covered. Curbside pickup is standard; tell us if you want your chauffeur inside at baggage claim.</p>
+          </div>
+          <span class="chip">Main airport</span>
         </div>
-        <div class="reveal" data-delay="1">
-          <h3><span class="num" style="color:var(--gold);font-size:1.6rem;margin-right:.5rem">SDL</span><a href="https://www.scottsdaleaz.gov/airport" target="_blank" rel="noopener">Scottsdale Airport</a> and private aviation</h3>
-          <p class="muted" style="margin-top:.6rem" data-confirm="fbo-pickup">One of the busiest private-jet airports in the country, minutes from North Scottsdale, Kierland and the resorts along Scottsdale Road. We collect at the FBO terminals, including Signature, Atlantic and Jet Aviation, and coordinate the timing with your crew or handler.</p>
+        <div class="board__row reveal" data-delay="1">
+          <span class="board__code">SDL</span>
+          <div class="board__body">
+            <h3><a href="https://www.scottsdaleaz.gov/airport" target="_blank" rel="noopener">Scottsdale Airport</a> and private aviation</h3>
+            <p data-confirm="fbo-pickup">One of the busiest private-jet airports in the country, minutes from North Scottsdale, Kierland and the resorts along Scottsdale Road. We collect at the FBO terminals, including Signature, Atlantic and Jet Aviation, and coordinate the timing with your crew or handler.</p>
+          </div>
+          <span class="chip">Private jets</span>
         </div>
-        <div class="reveal" data-delay="2">
-          <h3><span class="num" style="color:var(--gold);font-size:1.6rem;margin-right:.5rem">AZA</span><a href="https://www.gatewayairport.com/" target="_blank" rel="noopener">Phoenix-Mesa Gateway</a></h3>
-          <p class="muted" style="margin-top:.6rem">The East Valley airport, about 35 miles from Scottsdale. Popular for low-cost carriers and for Chandler, Gilbert and Mesa pickups, and quoted at a flat rate.</p>
+        <div class="board__row reveal" data-delay="2">
+          <span class="board__code">AZA</span>
+          <div class="board__body">
+            <h3><a href="https://www.gatewayairport.com/" target="_blank" rel="noopener">Phoenix-Mesa Gateway</a></h3>
+            <p>The East Valley airport, about 35 miles from Scottsdale. Popular for low-cost carriers and for Chandler, Gilbert and Mesa pickups, and quoted at a flat rate.</p>
+          </div>
+          <span class="chip">East Valley</span>
         </div>
-        <div class="reveal" data-delay="3">
-          <h3><span class="num" style="color:var(--gold);font-size:1.6rem;margin-right:.5rem">DVT</span>Phoenix Deer Valley</h3>
-          <p class="muted" style="margin-top:.6rem">General aviation in North Phoenix, close to Desert Ridge, Cave Creek and Carefree. Private arrivals are met on the ramp side or at the terminal, whichever your operator prefers.</p>
+        <div class="board__row reveal" data-delay="3">
+          <span class="board__code">DVT</span>
+          <div class="board__body">
+            <h3>Phoenix Deer Valley</h3>
+            <p>General aviation in North Phoenix, close to Desert Ridge, Cave Creek and Carefree. Private arrivals are met on the ramp side or at the terminal, whichever your operator prefers.</p>
+          </div>
+          <span class="chip">General aviation</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--paper section--paper-2">
+  <section class="section section--lane section--paper section--paper-2">
     <div class="container">
-      <div class="grid-2" style="align-items:start">
+      <div class="grid-2 grid-2--top">
         <div class="reveal">
           <p class="eyebrow">Travel times</p>
           <h2>Drive times to PHX</h2>
-          <p class="lead" style="margin-top:1rem">Typical drive times to Sky Harbor from the places we pick up most. Add time for rush hour and for big event weekends, and allow the airline's recommended arrival margin on top.</p>
-          <p class="muted" style="margin-top:1rem">Send us the flight and the pickup address and we set the pickup time.</p>
+          <p class="lead mt-2">Typical drive times to Sky Harbor from the places we pick up most. Add time for rush hour and for big event weekends, and allow the airline's recommended arrival margin on top.</p>
+          <p class="muted mt-2">Send us the flight and the pickup address and we set the pickup time.</p>
         </div>
         <div class="reveal" data-delay="1">
           <div class="table-wrap">
@@ -278,7 +294,7 @@
             <li>Service 24 hours a day, including red-eye departures and late arrivals</li>
             <li data-confirm="child-seats">Child seats on request, fitted before the pickup</li>
           </ul>
-          <div class="btn-row" style="margin-top:1.8rem">
+          <div class="btn-row mt-4">
             <a class="btn btn--ghost" href="/fleet/">See the vehicle <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
@@ -293,9 +309,17 @@
         <h2>Who books airport transfers</h2>
       </div>
       <div class="grid-3">
-        <div class="reveal"><h3>Resort and hotel guests</h3><p class="muted" style="margin-top:.5rem">Pickups at the Fairmont Scottsdale Princess, The Phoenician, Four Seasons Troon North, the Biltmore and every resort in between, for the flight in and the flight home.</p></div>
-        <div class="reveal" data-delay="1"><h3>Business travellers</h3><p class="muted" style="margin-top:.5rem">A quiet cabin and a driver who knows the terminals. Assistants can book by email or WhatsApp and get one confirmation back. See <a href="/corporate-transportation/">corporate transportation</a>.</p></div>
-        <div class="reveal" data-delay="2"><h3>Families and golf groups</h3><p class="muted" style="margin-top:.5rem">Six seats, a full cargo bay for golf bags and suitcases, and rear climate control for the summer. For bigger parties we send a second vehicle.</p></div>
+        <div class="reveal"><h3>Resort and hotel guests</h3>
+          <p>Pickups at the Fairmont Scottsdale Princess, The Phoenician, Four Seasons Troon North, the Biltmore and every resort in between, for the flight in and the flight home.</p>
+        </div>
+        <div class="feature reveal" data-delay="1">
+          <h3>Business travellers</h3>
+          <p>A quiet cabin and a driver who knows the terminals. Assistants can book by email or WhatsApp and get one confirmation back. See <a href="/corporate-transportation/">corporate transportation</a>.</p>
+        </div>
+        <div class="feature reveal" data-delay="2">
+          <h3>Families and golf groups</h3>
+          <p>Six seats, a full cargo bay for golf bags and suitcases, and rear climate control for the summer. For bigger parties we send a second vehicle.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -313,14 +337,14 @@
         <details class="faq-item"><summary>Is the airport price a flat rate?</summary><div><p>Yes. Every airport transfer is quoted as one flat price before you book, based on the pickup address and the airport. There is no meter and no surge pricing at busy times.</p></div></details>
         <details class="faq-item"><summary>How much does a car service from Scottsdale to PHX cost?</summary><div><p>Every airport transfer is a flat price based on the pickup area, the time and the number of vehicles, so we do not publish a rate card. Send the pickup address and the flight and we reply with the price, usually within the hour. The price you are quoted is the price you pay.</p></div></details>
       </div>
-      <p class="reveal" style="margin-top:1.6rem"><a class="link-arrow" href="/#faq">More questions answered on the home page <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+      <p class="reveal mt-3"><a class="link-arrow" href="/#faq">More questions answered on the home page <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
   <section class="cta-band">
     <div class="container">
       <div class="cta-band__box reveal">
-        <p class="eyebrow eyebrow--bare">Contact</p>
+        <p class="eyebrow">Contact</p>
         <h2>Get an airport quote</h2>
         <p>Pickup address, airport, date and passengers. We reply with one flat price, usually within the hour, any time of day.</p>
         <div class="btn-row">
@@ -379,8 +403,8 @@
           <li><a href="https://www.yelp.com/biz/comfort-luxury-rides-scottsdale" target="_blank" rel="noopener">Yelp</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Comfort+Luxury+Rides+Scottsdale" target="_blank" rel="noopener">Google reviews</a></li>
         </ul>
-        <h3 style="margin-top:1.6rem">Hours</h3>
-        <ul><li>Open 24 hours, 7 days a week</li></ul>
+        <h3 class="mt-3">Hours</h3>
+        <p class="footer-hours">Open 24 hours, 7 days a week</p>
       </div>
     </div>
     <div class="footer-bottom">
