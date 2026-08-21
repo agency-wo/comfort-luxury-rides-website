@@ -139,3 +139,7 @@ review link in follow-up messages to clients.
 - SEO: unique titles/descriptions, canonical, Open Graph, JSON-LD graph (LocalBusiness + Service +
   FAQPage + BreadcrumbList + Person), sitemap, robots, llms.txt, one H1 per page, keyword-led URLs.
 - The gate (`_tools/verify.py`) passed with warnings only for the items in the table above.
+- Lighthouse 13 on 2026-08-21 (local server, Edge headless): home, airport, fleet and contact each
+  scored 100 / 100 / 100 / 100 on desktop; on throttled mobile, performance 95 to 98 with LCP 2.0 to
+  2.6 s and CLS 0, and 100 for accessibility, best practices and SEO. Results live in `_tools/lh/`
+  (ignored by git).
