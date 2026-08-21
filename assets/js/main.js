@@ -12,13 +12,18 @@
   function lockScroll() {
     if (lockDepth++) return;
     lockY = Math.round(window.scrollY || window.pageYOffset || 0);
+    /* Pinning the body removes a classic scrollbar, which would shift the page left. Pay its
+       width back as padding. Overlay scrollbars (phones, Macs) measure 0, so nothing happens. */
+    var sbw = window.innerWidth - document.documentElement.clientWidth;
     var s = document.body.style;
     s.position = "fixed"; s.top = -lockY + "px"; s.left = "0"; s.right = "0";
+    if (sbw > 0) { s.paddingRight = sbw + "px"; if (header) header.style.paddingRight = sbw + "px"; }
   }
   function unlockScroll() {
     if (!lockDepth || --lockDepth) return;
     var s = document.body.style;
-    s.position = ""; s.top = ""; s.left = ""; s.right = "";
+    s.position = ""; s.top = ""; s.left = ""; s.right = ""; s.paddingRight = "";
+    if (header) header.style.paddingRight = "";
     var d = document.documentElement, prev = d.style.scrollBehavior;
     d.style.scrollBehavior = "auto";
     window.scrollTo(0, lockY);

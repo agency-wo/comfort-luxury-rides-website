@@ -106,10 +106,9 @@ html {
   scroll-padding-top: calc(var(--header-h) + 1rem);
   background: var(--bg);
 }
-/* Reserve the scrollbar gutter only where a classic scrollbar exists. On touch devices the
-   scrollbar is an overlay, so reserving it left a 15px strip of page background down the right
-   edge of every ivory section. */
-@media (min-width: 861px) and (pointer: fine) { html { scrollbar-gutter: stable; } }
+/* No scrollbar-gutter: reserving it leaves a strip of page background down the right edge on
+   every device with overlay scrollbars (all phones, and Macs). The layout shift it used to
+   prevent when the scroll is locked is handled in main.js, which pads by the measured width. */
 #main { scroll-margin-top: calc(var(--header-h) + 1rem); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
