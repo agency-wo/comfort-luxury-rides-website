@@ -626,8 +626,11 @@ body.nav-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45de
 .footer-bottom { border-top: 1px solid var(--line-dark-2); padding-block: 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; justify-content: space-between; align-items: center; font-size: .82rem; }
 .footer-bottom a { color: var(--text-muted); }
 .footer-bottom a:hover { color: #fff; }
-.footer-credit { display: inline-flex; align-items: center; gap: .5rem; }
-.footer-credit img { height: 18px; width: auto; opacity: .8; }
+.footer-credit { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .35rem .5rem; }
+/* The agency's line and its logo sit in one link: the written name takes the underline, the logo does not. */
+.footer-credit a { display: inline-flex; align-items: center; gap: .5rem; }
+.footer-credit__name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.footer-credit img { display: block; width: 100px; height: auto; aspect-ratio: 100 / 23; object-fit: contain; }
 
 /* ---------- Mobile call bar ---------- */
 .call-bar { display: none; }
