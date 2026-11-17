@@ -10,7 +10,7 @@ Built to be hosted on **GitHub Pages + Cloudflare** at `https://comfortluxuryrid
 ## Preview locally
 
 ```powershell
-cd "c:\Users\aceto\OneDrive\Desktop\web and apps\kun"
+# from the repository root
 python -m http.server 8123 --bind 127.0.0.1      # then open http://127.0.0.1:8123/
 ```
 (Port 8099 is often taken by another site's preview on this machine, so this project uses 8123.)
@@ -81,10 +81,10 @@ python _tools/contrast.py            # every colour pair used for text meets WCA
 python _tools/sync_chrome.py         # header/footer identical on every page
 node _tools/shot.mjs http://127.0.0.1:8123/ _tools/shots/home-390.png 390 844 --full   # screenshot + overflow report
 ```
-Lighthouse (borrowed from the MBC SRL project, not installed here):
+Lighthouse (not installed here; npx fetches it):
 ```powershell
 $env:CHROME_PATH = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-& "..\MBC SRL\_tools\node_modules\.bin\lighthouse.cmd" http://127.0.0.1:8123/ --output=html --output-path=_tools/lh/home.html --chrome-flags="--headless=new"
+npx lighthouse http://127.0.0.1:8123/ --output=html --output-path=_tools/lh/home.html --chrome-flags="--headless=new"
 ```
 Results of the last run are in the hand-off notes at the bottom of this file.
 
